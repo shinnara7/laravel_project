@@ -66,7 +66,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('backend.category.edit',compact('category'));
     }
 
     /**
@@ -78,7 +78,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            "name" =>"required"
+        ]);
+       
+        $category->name = $request->name;
+        $category->save();
+
+        // return redirect
+        return redirect()->route('category.index');
     }
 
     /**
@@ -89,6 +97,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('category.index');
     }
 }

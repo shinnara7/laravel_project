@@ -1,9 +1,9 @@
 @extends('backendtemplate')
-@section('title','Category List')
+@section('title','Brand List')
 
 @section('content')
-  <h1>Category List</h1>
-  <a href="{{route('category.create')}}">Add New Category</a>
+  <h1>Brand List</h1>
+  <a href="{{route('brand.create')}}">Add New Brand</a>
   <table>
   	<thead>
   		<tr>
@@ -12,15 +12,15 @@
   			<th>Action</th>
   		</tr>
   	</thead>
-  	@foreach($category as $row)
+  	@foreach($brand as $row)
   	<tbody>
   		<tr>
   			<td>{{$row->id}}</td>
   			<td>{{$row->name}}</td>
   			<td>
-  				<a href="{{route('category.show',$row->id)}}">Detail</a>
-  				<a href="{{route('category.edit',$row->id)}}">Edit</a>
-  				<form method="post" action="{{route('category.destroy',$row->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
+  				<a href="{{route('brand.show',$row->id)}}">Detail</a>
+  				<a href="{{route('brand.edit',$row->id)}}">Edit</a>
+  				<form method="post" action="{{route('brand.destroy',$row->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
   					@csrf
   					@method('DELETE')
   					<input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">

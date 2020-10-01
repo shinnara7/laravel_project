@@ -17,3 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('category','CategoryController');
+Route::resource('brand','BrandController');
+Route::resource('subcategory','SubcategoryController');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
