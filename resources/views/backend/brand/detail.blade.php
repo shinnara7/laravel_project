@@ -3,7 +3,7 @@
 
 @section('content')
   <h1>Brand Detail</h1>
-  <a href="{{route('brand.index')}}">Back</a>
+  <a href="{{route('brand.index')}}" class="btn btn-dark">Back</a>
   
   <img src="{{asset($brand->logo)}}" alt="Brand Logo">
 

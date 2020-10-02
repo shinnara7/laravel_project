@@ -3,8 +3,8 @@
 
 @section('content')
   <h1>Brand List</h1>
-  <a href="{{route('brand.create')}}">Add New Brand</a>
-  <table>
+  <a href="{{route('brand.create')}}" class="btn btn-outline-success btn-sm">Add New Brand</a>
+  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
   	<thead>
   		<tr>
   			<th>No</th>
@@ -18,8 +18,10 @@
   			<td>{{$row->id}}</td>
   			<td>{{$row->name}}</td>
   			<td>
-  				<a href="{{route('brand.show',$row->id)}}">Detail</a>
-  				<a href="{{route('brand.edit',$row->id)}}">Edit</a>
+  				<a href="{{route('brand.show',$row->id)}}" class="btn btn-info">Detail
+          </a>
+  				<a href="{{route('brand.edit',$row->id)}}" class="btn btn-warning">
+                        Edit</a>
   				<form method="post" action="{{route('brand.destroy',$row->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
   					@csrf
   					@method('DELETE')

@@ -3,8 +3,8 @@
 
 @section('content')
   <h1>Subcategory List</h1>
-  <a href="{{route('subcategory.create')}}">Add New Subcategory</a>
-  <table>
+  <a href="{{route('subcategory.create')}}" class="btn btn-outline-success btn-sm">Add New Subcategory</a>
+  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
   	<thead>
   		<tr>
   			<th>No</th>
@@ -20,8 +20,8 @@
   			<td>{{$row->name}}</td>
         <td>{{$row->category_id}}</td>
   			<td>
-  				<a href="{{route('subcategory.show',$row->id)}}">Detail</a>
-  				<a href="{{route('subcategory.edit',$row->id)}}">Edit</a>
+  				<a href="{{route('subcategory.show',$row->id)}}" class="btn btn-info">Detail</a>
+  				<a href="{{route('subcategory.edit',$row->id)}}" class="btn btn-warning">Edit</a>
   				<form method="post" action="{{route('subcategory.destroy',$row->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
   					@csrf
   					@method('DELETE')
