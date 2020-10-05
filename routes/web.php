@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/','FrontendController@index');
+
+Route::get('main','PageController@main')->name('mainpage');
 Route::resource('category','CategoryController');
 Route::resource('brand','BrandController');
 Route::resource('subcategory','SubcategoryController');
 
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+ Route::get('/home', 'HomeController@index')->name('home');
