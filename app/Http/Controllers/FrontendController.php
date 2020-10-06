@@ -81,4 +81,17 @@ class FrontendController extends Controller
     {
         //
     }
+
+    public function register()
+    {
+        return view('frontend.register');
+    }
+    public function signin()
+    {
+        return view('frontend.login');
+    }
+    public function vendor_register()
+    {
+        return view('frontend.vregister');
+    }
 }

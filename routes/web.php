@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/','FrontendController@index');
+Route::get('/','FrontendController@index')->name('home');
 
 Route::get('main','PageController@main')->name('mainpage');
+Route::get('/sign_up','FrontendController@register')->name('signup');
+Route::get('/signin','FrontendController@signin')->name('signin');
+Route::get('/vregister','FrontendController@vendor_register')->name('vregister');
+
 Route::resource('category','CategoryController');
 Route::resource('brand','BrandController');
 Route::resource('subcategory','SubcategoryController');
