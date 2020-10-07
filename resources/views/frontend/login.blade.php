@@ -10,8 +10,8 @@
                         <h2>Login</h2>
                         <form action="#">
                             <div class="group-input">
-                                <label for="username">Username or email address *</label>
-                                <input type="text" id="username">
+                                <label for="email">Email address *</label>
+                                <input type="text" id="email">
                             </div>
                             <div class="group-input">
                                 <label for="pass">Password *</label>
@@ -30,7 +30,7 @@
                             <button type="submit" class="site-btn login-btn">Sign In</button>
                         </form>
                         <div class="switch-login">
-                            <a href="{{route('signin')}}" class="or-login">Or Create An Account</a>
+                            <a href="{{route('signup')}}" class="or-login">Or Create An Account</a>
                         </div>
                     </div>
                 </div>

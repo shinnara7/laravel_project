@@ -9,44 +9,44 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="register-form">
                         <h2>Be A Seller</h2>
-                        <form method="post" action="#" enctype="multipart/form-data">
+                        <form method="post" action="{{route('vendor')}}" enctype="multipart/form-data">
                           @csrf
                             <div class="group-input">
                                 <label for="name">Name</label>
-                                <input type="text" id="name">
+                                <input type="text" id="name" name="name">
                             </div>
 
                             <div class="group-input">
                                 <label for="profile">Profile</label>
-                                <input type="file" name="profile" class="form-control" id="Inputprofile" >
+                                <input type="file" name="profile" class="form-control" id="Inputprofile" name="profile" >
                             </div>
 
                             <div class="group-input">
                                 <label for="address">Address</label>
-                                <input type="text" id="address">
+                                <input type="text" id="address" name="address">
                             </div>
 
                             <div class="group-input">
                                 <label for="phone">Phone</label>
-                                <input type="text" id="phone">
+                                <input type="text" id="phone" name="phone">
                             </div>
 
 
 
                             <div class="group-input">
                                 <label for="email">Email</label>
-                                <input type="email" id="email">
+                                <input type="email" id="email" name="email">
                             </div>
 
                             <div class="group-input">
                                 <label for="pass">Password *</label>
-                                <input type="text" id="pass">
+                                <input type="password" id="pass" name="password">
                             </div>
                             
 
                             <div class="group-input">
                                 <label for="con-pass">Confirm Password *</label>
-                                <input type="text" id="con-pass">
+                                <input type="password" id="con-pass" name="password_comfirm">
                             </div>
 
                             <button type="submit" class="site-btn register-btn">REGISTER</button>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use App\Shop;
+use Hash;
 class FrontendController extends Controller
 {
     /**
@@ -94,4 +96,61 @@ class FrontendController extends Controller
     {
         return view('frontend.vregister');
     }
+
+    public function customer(Request $request)
+    {  
+         $request->validate([
+            "name" => "required", "string", "max:255",
+            "email" => "required", "string", "email", "max:255", "unique:users",
+            "password" => "required", "string", "min:8", "confirmed",
+        ]);
+
+        $user=new User;
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=Hash::make('$request->password');
+        $user->save();
+
+        $user->assignRole('customer');
+
+        return redirect()->route('main');
+    }
+    public function vendor(Request $request)
+    { 
+        // $request->validate([
+        //     "name" => "required", "string", "max:255",
+        //     "email" => "required", "string", "email", "max:255", "unique:users",
+        //     "password" =>"required", "string", "min:8", "confirmed",
+        //     "user_id"=>"required",
+        //     "profile"=>"required",
+        //     "phone"=>"required",
+        //     "address"=>"required",
+        // ]);
+
+        $user=new User;
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=Hash::make('$request->password');
+        $user->save();
+
+        $user->assignRole('vendor');
+        
+
+        if($request->file()) {
+            $fileName = time().'_'.$request->profile->getClientOriginalName(); // 1970 jan 1
+            $filePath = $request->file('profile')->storeAs('shop_profile', $fileName, 'public');
+            $path = 'storage/'.$filePath;
+        }
+
+        $shop=new Shop;
+        $shop->user_id=$user->id;
+        $shop->profile=$path;
+        $shop->phoneno=$request->phone;
+        $shop->address=$request->address;
+        $shop->save();
+
+        return redirect()->route('main');
+
+    }
+    
 }

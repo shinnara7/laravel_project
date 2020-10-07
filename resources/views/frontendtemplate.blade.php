@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="ht-right">
-                    <a href="{{route('login')}}" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <a href="{{route('signin')}}" class="login-panel"><i class="fa fa-user"></i>Login</a>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="frontend/img/flag-1.jpg" data-imagecss="flag yt"
